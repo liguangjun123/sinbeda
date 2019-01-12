@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>thymeleafIncludeCssAndJs</title>
+</head>
+<body>
+<div>
+
+</div>
+
+    <li>1.此处为使用thymeleaf引擎时,引用的公共静态文件</li>
+    <li>2.此html只能放在templates(打开的html同根包下),否则thymeleaf找不到</li>
+    <div id="divLead">
+        <div th:fragment="head">
+            <link rel="stylesheet" th:href="@{/style.min.css}"/>
+            <link rel="stylesheet" th:href="@{/bootstrap-4.0.0-dist/css/bootstrap.css}"/>
+        </div>
+        <div th:fragment="foot">
+            <script type="text/javascript" th:src="@{/jquery-3.3.1.js}"></script>
+            <script type="text/javascript" th:src="@{/bootstrap-4.0.0-dist/js/bootstrap.js}"></script>
+        </div>
+    </div>
+</body>
+</html>
