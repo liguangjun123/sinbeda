@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @Author: 华为周旭阳
@@ -47,6 +46,7 @@ public class SelectTemplateController {
         }
         return "fail";
     }
+
 
     @RequestMapping("/queryCustomer")
     @ResponseBody
@@ -85,6 +85,8 @@ public class SelectTemplateController {
         }
         if (page > 0) {
             List<Object> list = templateService.queryOperate(start, end);
+//            功能点
+
             return list;
         }
         return null;
@@ -129,5 +131,23 @@ public class SelectTemplateController {
         data.put("dept2", "QA");
         data.put("dept3", "质量保证部");
         return data;
+    }
+
+    @RequestMapping("/query_sinbeda")
+    @ResponseBody
+    public List querySinbeda(int page) {
+        int end = page * 10 - 1;
+        int start;
+        if (end > 10) {
+            start = end - 10;
+        } else {
+            start = 0;
+        }
+        if (page > 0) {
+            List<Object> list = templateService.querySinbeda(start, end);
+//            功能点
+            return list;
+        }
+        return null;
     }
 }

@@ -3,9 +3,7 @@ package com.boot.crm.dao;
 import com.boot.crm.doMain.Template;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @Author: 华为周旭阳
@@ -50,5 +48,16 @@ public interface TemplateMapper {
     List<Object> queryOperate(@Param("start")int start,@Param("end")int end);
     //管理员查询
     List<Object> queryAdministrator(@Param("start")int start,@Param("end")int end);
-    
+
+    Integer queryOperateMnum();
+
+    Integer queryOperatePnum();
+
+    List<Object> queryOperateSnum();
+
+    int inserSinbeda(@Param("map")Map<String,Object> map);
+
+    List<Object> querySinbeda(@Param("start")int start,@Param("end")int end);
+
+    int deleteSinbedaOne(@Param("id")String id);
 }

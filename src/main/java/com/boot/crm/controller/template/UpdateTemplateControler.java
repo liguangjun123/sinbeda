@@ -18,34 +18,48 @@ import com.boot.crm.service.TemplateService;
 @Controller
 @RequestMapping("/updateTemplate")
 public class UpdateTemplateControler {
-	@Autowired
+    @Autowired
     private TemplateService templateService;
-	
-	@RequestMapping("/updateCustomer")
-	@ResponseBody
-	public String updateCustomer(@RequestParam Map<String,Object> map){
-		Object Oid=map.get("id");
-		String id=Oid.toString();
-		map.remove("id");
-		 int i = templateService.updateCustomer(map,id);
-	        if(i==1) {
-			return "success";
-	    }else {
-	    	return "fail";
-	    }
-	    }
-	
-	@RequestMapping("/updateOperate")
-	@ResponseBody
-	public String updateOperate(@RequestParam Map<String,Object> map){
-		Object Oid=map.get("id");
-		String id=Oid.toString();
-		map.remove("id");
-		 int i = templateService.updateOperate(map,id);
-	        if(i==1) {
-			return "success";
-	    }else {
-	    	return "fail";
-	    }
-	    }
+
+    @RequestMapping("/updateCustomer")
+    @ResponseBody
+    public String updateCustomer(@RequestParam Map<String, Object> map) {
+        Object Oid = map.get("id");
+        String id = Oid.toString();
+        map.remove("id");
+        int i = templateService.updateCustomer(map, id);
+        if (i == 1) {
+            return "success";
+        } else {
+            return "fail";
+        }
+    }
+
+    @RequestMapping("/updateOperate")
+    @ResponseBody
+    public String updateOperate(@RequestParam Map<String, Object> map) {
+        Object Oid = map.get("id");
+        String id = Oid.toString();
+        map.remove("id");
+        int i = templateService.updateOperate(map, id);
+        if (i == 1) {
+            return "success";
+        } else {
+            return "fail";
+        }
+    }
+
+    @RequestMapping("/delete_sinbeda_one")
+    @ResponseBody
+    public String deleteSinbedaOne(String id) {
+        int i = templateService.deleteSinbedaOne(id);
+        if (i == 1) {
+            return "success";
+        } else {
+            return "fail";
+        }
+    }
+
+
+
 }

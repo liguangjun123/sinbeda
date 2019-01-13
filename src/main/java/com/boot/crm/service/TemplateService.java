@@ -2,6 +2,9 @@ package com.boot.crm.service;
 
 import com.boot.crm.doMain.Template;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -41,4 +44,16 @@ public interface TemplateService {
     Object queryCustomerObject(String id);
     
     List<Object> queryOperate(int start,int end);
+
+    Integer queryOperateMnum();
+
+    Integer queryOperatePnum();
+
+    List<Object> queryOperateSnum();
+
+    int inserSinbeda(Map<String,Object> map);
+
+    List<Object> querySinbeda(int start,int end);
+
+    int deleteSinbedaOne(String id);
 }
