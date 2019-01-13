@@ -61,6 +61,7 @@ public class SelectTemplateController {
         if (page > 0) {
             List<Object> list = templateService.queryCustomer(start, end);
             return list;
+
         }
         return null;
     }
@@ -87,6 +88,7 @@ public class SelectTemplateController {
             return list;
         }
         return null;
+
     }
 
     @RequestMapping("/getAll")
