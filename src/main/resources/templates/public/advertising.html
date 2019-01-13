@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -42,7 +43,9 @@
                 <thead>
                 <tr>
 
+                    <!--<td width="5%">id</td>-->
                     <th width="20%">已上云企业数</th>
+                    <th width="20%">统计时间</th>
                     <th width="20%">以上云项目数</th>
                     <th width="20%">累计上云人天数</th>
                     <th width="20%">操作记录数</th>
@@ -53,14 +56,18 @@
                 <tbody>
                 <tr ms-for="el in @datalist">
 
-                    <td width="20%">{{el.number}}</td>
-                    <td width="20%">{{el.cname}}</td>
+                    <!--<td width="5%">{{el.id}}</td>-->
+                    <td width="20%">210</td>
+                    <td width="20%">{{el.create_time}}</td>
                     <td width="20%">{{el.pnum}}</td>
                     <td width="20%">{{el.mnum}}</td>
+                    <td width="20%">{{el.sum_num}}</td>
+
 
                     <td class="td-manage" >
-                        <a title="编辑" ms-on-click="@member_edit('编辑','operate_edit.html','1','900px','600px')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120"></i></a>
-                        <a title="删除" href="javascript:;" ms-on-click="@member_del(el.id)"  class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120"></i></a>
+                        <!--<a title="编辑" ms-on-click="@member_edit('编辑','operate_edit.html','1','900px','600px')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120"></i></a>-->
+                        <a title="删除" href="javascript:;" ms-on-click="@member_del(el.id)"
+                           class="btn btn-xs btn-warning"><i class="icon-trash  bigger-120"></i></a>
                     </td>
                 </tr>
                 </tbody>
@@ -70,6 +77,7 @@
 </div>
 </body>
 </html>
+
 <script>
     var viewmodel = avalon.define({
         //id必须和页面上定义的ms-controller名字相同，否则无法控制页面
@@ -81,13 +89,16 @@
             layer.confirm('确认要删除吗？',function(index){
                 $.ajax({
                     type: "post",
-                    url: "/crm_boot/deletTemplate/deleteOperate",    //向后端请求数据的url
+                    url: "/crm_boot/updateTemplate/delete_sinbeda_one",    //向后端请求数据的url
                     data: {id},
                     success: function (data) {
                         if(data=="success"){
-                            layer.msg('已删除!',{icon:1,time:1000});
+                            layer.msg('已删除 !'+id,{icon:1,time:1000});
                             window.location.reload()
                         }
+                    },
+                    error: function () {
+                        layer.msg(id);
                     }
                 });
             });
@@ -105,11 +116,10 @@
             });
         }
     });
-
     $(function(){
         $.ajax({
             type: "post",
-            url: "/crm_boot/template/queryOperate",    //向后端请求数据的url
+            url: "/crm_boot/template/query_sinbeda",    //向后端请求数据的url
             data: {"page":"1"},
             success: function (data) {
                 viewmodel.datalist = data;

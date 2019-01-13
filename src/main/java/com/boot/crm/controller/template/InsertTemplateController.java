@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -109,7 +110,8 @@ public class InsertTemplateController {
         int mnum = this.queryOperateMnum();
         //获取累计操作数
         int sum = this.queryOperateSnum();
-        long time = System.currentTimeMillis();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String time = df.format(new Date());
         //        Map<String, Object> map
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("pnum", pnum);

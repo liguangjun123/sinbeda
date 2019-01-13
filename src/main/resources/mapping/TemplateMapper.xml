@@ -239,7 +239,8 @@
     </insert>
 
     <select id="querySinbeda" resultType="java.util.HashMap">
-    SELECT * FROM sinbeda where status = 0
+    SELECT id,pnum,mnum,create_time,sum_num
+    FROM sinbeda where status = 0
     order by id DESC LIMIT #{start},#{end}
   </select>
 
