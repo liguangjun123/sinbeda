@@ -13,7 +13,7 @@
 	<name>crm_boot</name>
 	<description>Demo project for Spring Boot</description>
 
-	<!--spring项目的标志,它用来提供相关的Maven默认依赖-->
+	<!--spring项目的标志,它用来提供相关的Maven默认依赖de-->
 	<!--在jar包仓库中该parent对应pom文件,在该pom文件中有详细的相关依赖jar包和版本-->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
