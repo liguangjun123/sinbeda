@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @SpringBootApplication	//1.
 @MapperScan(basePackages = "com.boot.crm.dao")
-@EnableScheduling  	//3.2
+@EnableScheduling  	//3.2dfg
 public class CrmApplication {
 
 	@RequestMapping("/")
