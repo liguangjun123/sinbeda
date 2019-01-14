@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 3.在启动类上添加@EnableScheduling注解即可开启 定时 ，g
  */
 @Controller
-@SpringBootApplication	//1.
+@SpringBootApplication	//1.2
 @MapperScan(basePackages = "com.boot.crm.dao")
 @EnableScheduling  	//3.2dfg
 public class CrmApplication {
