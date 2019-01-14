@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by 华为周旭阳 on 2019/1/3.
  * 1.@SpringBootApplication 是SpringBoot项目的核心注解,主要目的是开启自动配置
  * 2.项目启动的入口
- * 3.在启动类上添加@EnableScheduling注解即可开启 定时
+ * 3.在启动类上添加@EnableScheduling注解即可开启 定时 ，g
  */
 @Controller
 @SpringBootApplication	//1.
